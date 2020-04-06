@@ -27,3 +27,16 @@ export const deletePurchase = (id) => dispatch => {
         })
         .catch(err => console.log(err));
 };
+
+// ADD PURCHASE
+
+export const addPurchase = purchase => dispatch => {
+    axios.post('/api/purchases/', purchase)
+        .then(res => {
+            dispatch({
+                type: ADD_PURCHASE,
+                payload: res.data
+            });
+        })
+        .catch(err => console.log(err));
+};

@@ -5,7 +5,9 @@ import { getPurchases, deletePurchase } from '../../actions/purchases';
 
 export class Purchases extends Component {
     static propTypes = {
-        purchases: PropTypes.array.isRequired
+        purchases: PropTypes.array.isRequired,
+        getPurchases: PropTypes.func.isRequired,
+        deletePurchase: PropTypes.func.isRequired
     };
 
     componentDidMount() {
@@ -30,7 +32,7 @@ export class Purchases extends Component {
                                 <td>{purchase.id}</td>
                                 <td>{purchase.name}</td>
                                 <td>{purchase.amount}</td>
-                                <td>{purchase.date}</td>
+                                <td>{purchase.purchase_date}</td>
                                 <td><button onClick={this.props.deletePurchase.bind(this, purchase.id)} className="btn btn-danger btn-sm">{" "} Delete</button></td>
                             </tr>
                         ))}

@@ -1,4 +1,4 @@
-import { GET_PURCHASES, DELETE_PURCHASE } from "../actions/types.js"
+import { GET_PURCHASES, DELETE_PURCHASE, ADD_PURCHASE } from "../actions/types.js"
 
 const initialState = {
     purchases: []
@@ -18,6 +18,11 @@ export default function (state = initialState, action) {
                 purchases: state.purchases.filter(purchase => purchase.id !== action.payload)
             };
 
+        case ADD_PURCHASE:
+            return {
+                ...state,
+                purchases: [...state.purchases, action.payload]
+            }
         default:
             return state;
     }
