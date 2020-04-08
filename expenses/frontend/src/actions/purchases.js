@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_PURCHASES, DELETE_PURCHASE } from './types';
+import { GET_PURCHASES, DELETE_PURCHASE, GET_ERRORS } from './types';
 
 // GET PURCHASES
 
@@ -31,12 +31,22 @@ export const deletePurchase = (id) => dispatch => {
 // ADD PURCHASE
 
 export const addPurchase = purchase => dispatch => {
-    axios.post('/api/purchases/', purchase)
+    axios
+        .post('/api/purchases/', purchase)
         .then(res => {
             dispatch({
                 type: ADD_PURCHASE,
                 payload: res.data
             });
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            const errors = {
+                msg: error.response.data,
+                status: err.response.status
+            };
+            dispatch({
+                type: GET_ERRORS,
+                payload: errors
+            });
+        })
 };

@@ -1,3 +1,4 @@
 export const GET_PURCHASES = "GET_PURCHASES"
 export const DELETE_PURCHASE = "DELETE_PURCHASE"
 export const ADD_PURCHASE = "ADD_PURCHASE"
+export const GET_ERRORS = "GET_ERRORS"
