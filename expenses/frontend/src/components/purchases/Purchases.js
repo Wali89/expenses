@@ -14,9 +14,6 @@ export class Purchases extends Component {
         this.props.getPurchases();
     }
 
-    componentDidUpdate() {
-        this.props.getPurchases();
-    }
 
     render() {
         return (

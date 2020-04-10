@@ -39,14 +39,14 @@ export const addPurchase = purchase => dispatch => {
                 payload: res.data
             });
         })
-        .catch(err => {
+        .catch(res => {
             const errors = {
-                msg: error.response.data,
-                status: err.response.status
+                msg: res.response.data,
+                status: res.response.status
             };
             dispatch({
                 type: GET_ERRORS,
                 payload: errors
             });
         })
-};
+};  

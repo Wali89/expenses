@@ -21,6 +21,12 @@ export class Form extends Component {
         const { name, amount, purchase_date } = this.state;
         const purchase = { name, amount, purchase_date };
         this.props.addPurchase(purchase);
+        this.setState({
+            name: '',
+            amount: '',
+            purchase_date: ''
+
+        })
     }
     render() {
         const { name, amount, purchase_date } = this.state;

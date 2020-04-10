@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import purchases from './purchases'
+import purchases from './purchases';
+import errors from './errors'
 
 export default combineReducers({
-    purchases
+    purchases,
+    errors
 });
