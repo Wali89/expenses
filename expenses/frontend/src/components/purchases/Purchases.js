@@ -24,6 +24,7 @@ export class Purchases extends Component {
                         <th>ID</th>
                         <th>Name</th>
                         <th>Amount</th>
+                        <th>Message</th>
                         <th>Date</th>
                         <th />
                     </thead>
@@ -33,6 +34,7 @@ export class Purchases extends Component {
                                 <td>{purchase.id}</td>
                                 <td>{purchase.name}</td>
                                 <td>{purchase.amount}</td>
+                                <td>{purchase.message}</td>
                                 <td>{purchase.purchase_date}</td>
                                 <td><button onClick={this.props.deletePurchase.bind(this, purchase.id)} className="btn btn-danger btn-sm">{" "} Delete</button></td>
                             </tr>

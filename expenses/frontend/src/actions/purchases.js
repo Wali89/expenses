@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_PURCHASES, DELETE_PURCHASE, GET_ERRORS } from './types';
+import { GET_PURCHASES, DELETE_PURCHASE, GET_ERRORS, ADD_PURCHASE } from './types';
 
 // GET PURCHASES
 

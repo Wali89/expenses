@@ -18,18 +18,19 @@ export class Form extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        const { name, amount, purchase_date } = this.state;
-        const purchase = { name, amount, purchase_date };
+        const { name, amount, purchase_date, message } = this.state;
+        const purchase = { name, amount, purchase_date, message };
         this.props.addPurchase(purchase);
         this.setState({
             name: '',
             amount: '',
-            purchase_date: ''
+            purchase_date: '',
+            message: ''
 
         })
     }
     render() {
-        const { name, amount, purchase_date } = this.state;
+        const { name, amount, purchase_date, message } = this.state;
         return (
             <div className="card card-body mt-4 mb-4">
                 <h2>Add Purchase</h2>
@@ -64,6 +65,17 @@ export class Form extends Component {
                             value={purchase_date}
                         />
                     </div>
+                    <div className="form-group">
+                        <label>Message</label>
+                        <textarea
+                            className="form-control"
+                            type="text"
+                            name="message"
+                            onChange={this.onChange}
+                            value={message}
+                        />
+                    </div>
+
                     <div className="form-group">
                         <button type="submit" className="btn btn-primary">Submit</button>
                     </div>
