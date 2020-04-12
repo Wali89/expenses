@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { createMessage } from './messages'
 
 import { GET_PURCHASES, DELETE_PURCHASE, GET_ERRORS, ADD_PURCHASE } from './types';
 
@@ -20,6 +21,7 @@ export const getPurchases = () => dispatch => {
 export const deletePurchase = (id) => dispatch => {
     axios.delete(`/api/purchases/${id}`)
         .then(res => {
+            dispatch(createMessage({ purchaseAdded: 'Purchase Deleted'}))
             dispatch({
                 type: DELETE_PURCHASE,
                 payload: id

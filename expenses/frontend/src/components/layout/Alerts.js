@@ -14,7 +14,7 @@ export class Alerts extends Component {
             if (error.msg.name) alert.error(`Name: ${error.msg.name.join()}`);
             if (error.msg.amount) alert.error(`Amount: ${error.msg.amount.join()}`)
             if (error.msg.purchase_date) alert.error(`Purchase Date: ${error.msg.purchase_date.join()}`)
-            if (error.msg.message) alert.error(`Message: ${error.msg.message.join()}`)
+            if (error.msg.note) alert.error(`note: ${error.msg.note.join()}`)
         } else {
             alert.succces()
         }

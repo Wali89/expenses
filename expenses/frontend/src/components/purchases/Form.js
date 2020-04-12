@@ -8,7 +8,8 @@ export class Form extends Component {
     state = {
         name: '',
         amount: '',
-        purchase_date: ''
+        purchase_date: '',
+        notes: ''
     }
 
     static propTypes = {
@@ -18,19 +19,19 @@ export class Form extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        const { name, amount, purchase_date, message } = this.state;
-        const purchase = { name, amount, purchase_date, message };
+        const { name, amount, purchase_date, notes } = this.state;
+        const purchase = { name, amount, purchase_date, notes };
         this.props.addPurchase(purchase);
         this.setState({
             name: '',
             amount: '',
             purchase_date: '',
-            message: ''
+            notes: ''
 
         })
     }
     render() {
-        const { name, amount, purchase_date, message } = this.state;
+        const { name, amount, purchase_date, notes } = this.state;
         return (
             <div className="card card-body mt-4 mb-4">
                 <h2>Add Purchase</h2>
@@ -66,13 +67,13 @@ export class Form extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <label>Message</label>
+                        <label>Notes</label>
                         <textarea
                             className="form-control"
                             type="text"
-                            name="message"
+                            name="notes"
                             onChange={this.onChange}
-                            value={message}
+                            value={notes}
                         />
                     </div>
 
