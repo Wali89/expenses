@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { createMessage } from './messages'
+import { createMessage, returnErrors } from './messages'
 
 import { GET_PURCHASES, DELETE_PURCHASE, GET_ERRORS, ADD_PURCHASE } from './types';
 
@@ -13,7 +13,7 @@ export const getPurchases = () => dispatch => {
                 payload: res.data
             });
         })
-        .catch(err => console.log(err));
+        .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
 };
 
 // DELETE PURCHASE
@@ -21,7 +21,7 @@ export const getPurchases = () => dispatch => {
 export const deletePurchase = (id) => dispatch => {
     axios.delete(`/api/purchases/${id}`)
         .then(res => {
-            dispatch(createMessage({ purchaseAdded: 'Purchase Deleted'}))
+            dispatch(createMessage({ deletePurchase: 'Purchase Deleted' }))
             dispatch({
                 type: DELETE_PURCHASE,
                 payload: id
@@ -36,19 +36,11 @@ export const addPurchase = purchase => dispatch => {
     axios
         .post('/api/purchases/', purchase)
         .then(res => {
+            dispatch(createMessage({ purchaseAdded: 'Purchase Added' }))
             dispatch({
                 type: ADD_PURCHASE,
                 payload: res.data
             });
         })
-        .catch(res => {
-            const errors = {
-                msg: res.response.data,
-                status: res.response.status
-            };
-            dispatch({
-                type: GET_ERRORS,
-                payload: errors
-            });
-        })
+        .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
 };  
