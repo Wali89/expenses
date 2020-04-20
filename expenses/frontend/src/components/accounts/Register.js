@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom"
 
 export class Register extends Component {
     state = {
@@ -38,6 +39,7 @@ export class Register extends Component {
                             <input
                                 type="email"
                                 className="form-control"
+                                name="email"
                                 onChange={this.onChange}
                                 value={email}
                             />
@@ -46,6 +48,7 @@ export class Register extends Component {
                             <label>Password</label>
                             <input
                                 type="password"
+                                name="password"
                                 className="form-control"
                                 onChange={this.onChange}
                                 value={password}
@@ -55,6 +58,7 @@ export class Register extends Component {
                             <label>Confirm Password</label>
                             <input
                                 type="password2"
+                                name="password2"
                                 className="form-control"
                                 onChange={this.onChange}
                                 value={password2}
