@@ -12,7 +12,7 @@ class PurchaseViewSet(viewsets.ModelViewSet):
     serializer_class = PurchaseSerializer
 
     def get_queryset(self):
-        return self.request.user.leads.all()
+        return self.request.user.purchases.all()
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
