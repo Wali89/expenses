@@ -1,12 +1,14 @@
 import axios from 'axios';
 import { createMessage, returnErrors } from './messages'
+import { tokenConfig } from './auth'
 
 import { GET_PURCHASES, DELETE_PURCHASE, GET_ERRORS, ADD_PURCHASE } from './types';
 
 // GET PURCHASES
 
-export const getPurchases = () => dispatch => {
-    axios.get('/api/purchases/')
+export const getPurchases = () => (dispatch, getState) => {
+    axios
+        .get('/api/purchases/', tokenConfig(getState))
         .then(res => {
             dispatch({
                 type: GET_PURCHASES,
@@ -18,8 +20,8 @@ export const getPurchases = () => dispatch => {
 
 // DELETE PURCHASE
 
-export const deletePurchase = (id) => dispatch => {
-    axios.delete(`/api/purchases/${id}`)
+export const deletePurchase = (id) => (dispatch, getState) => {
+    axios.delete(`/api/purchases/${id}`, tokenConfig(getState))
         .then(res => {
             dispatch(createMessage({ deletePurchase: 'Purchase Deleted' }))
             dispatch({
@@ -32,9 +34,9 @@ export const deletePurchase = (id) => dispatch => {
 
 // ADD PURCHASE
 
-export const addPurchase = purchase => dispatch => {
+export const addPurchase = purchase => (dispatch, getState) => {
     axios
-        .post('/api/purchases/', purchase)
+        .post('/api/purchases/', purchase, tokenConfig(getState))
         .then(res => {
             dispatch(createMessage({ purchaseAdded: 'Purchase Added' }))
             dispatch({

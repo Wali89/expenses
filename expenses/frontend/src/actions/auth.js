@@ -31,10 +31,10 @@ export const loadUser = () => (dispatch, getState) => {
 
 }
 
-// LOGIN USER
-export const register = ({ user, password, email }) => dispatch => {
+// REGISTER USER
+export const register = ({ username, password, email }) => dispatch => {
 
-    // headers
+    // Headers
     const config = {
         headers: {
             'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ export const register = ({ user, password, email }) => dispatch => {
 
 }
 
-//REGISTER USER
+//LOGIN USER
 export const login = (username, password) => (dispatch) => {
 
     // headers
