@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createMessage, returnErrors } from './messages'
 import { tokenConfig } from './auth'
 
-import { GET_PURCHASES, DELETE_PURCHASE, GET_ERRORS, ADD_PURCHASE } from './types';
+import { GET_PURCHASES, DELETE_PURCHASE, GET_ERRORS, ADD_PURCHASE, SEARCH } from './types';
 
 // GET PURCHASES
 
@@ -45,4 +45,9 @@ export const addPurchase = purchase => (dispatch, getState) => {
             });
         })
         .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
-};  
+};
+
+// SEARCH
+export const search = value => {
+    return { type: SEARCH, value }
+}
