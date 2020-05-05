@@ -80,7 +80,8 @@ export const login = (username, password) => (dispatch) => {
                 type: LOGIN_SUCCESS,
                 payload: res.data
             });
-        }).catch(err => {
+        })
+        .catch(err => {
             dispatch(returnErrors(err.response.data, err.response.status));
             dispatch({
                 type: LOGIN_FAIL

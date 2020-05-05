@@ -2,12 +2,16 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getPurchases, deletePurchase } from '../../actions/purchases';
+import { DateRangePicker } from 'react-date-range';
+
+
 
 export class Purchases extends Component {
     constructor() {
         super();
         this.state = {
             search: ''
+
         }
     }
     static propTypes = {
@@ -18,6 +22,7 @@ export class Purchases extends Component {
 
     };
 
+
     componentDidMount() {
         this.props.getPurchases();
     }
@@ -26,20 +31,39 @@ export class Purchases extends Component {
         this.setState({ search: event.target.value });
     }
 
+    handleSelect(e) {
+        console.log(e)
+    }
+
 
 
     render() {
+        const selectionRange = {
+            startDate: new Date(),
+            endDate: new Date(),
+            key: 'selection',
+        }
+
         let filteredPurchases = this.props.purchases.filter((purchase) => {
             return (purchase.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1) || (purchase.notes.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);
         })
         return (
+
+
             <Fragment>
                 <h2>Purchases</h2>
+
                 <input
                     type="text"
                     placeholder='Search'
                     value={this.state.search}
                     onChange={this.updateSearch.bind(this)} />
+
+                <DateRangePicker
+                    ranges={[selectionRange]}
+                    onChange={this.handleSelect}
+                />
+
                 <table className="table table-striped">
                     <thead>
                         <th>ID</th>
@@ -63,14 +87,17 @@ export class Purchases extends Component {
                     </tbody>
 
                 </table>
-            </Fragment>
+            </Fragment >
         )
     }
 }
 
 const mapStateToProps = state => ({
     purchases: state.purchases.purchases,
-    search: state.search.search
+    search: state.search.search,
+    selectionRange: state.search.selectionRange,
+    startDate: state.search.startDate,
+    endDate: state.search.endDate
 });
 
 export default connect(mapStateToProps, { getPurchases, deletePurchase })(Purchases);

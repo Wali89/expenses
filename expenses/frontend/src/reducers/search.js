@@ -2,7 +2,11 @@ import { SEARCH } from "../actions/types.js";
 
 const initialState = {
     purchases: [],
-    search: ''
+    search: '',
+    selectionRange: '',
+    startDate: new Date(),
+    endDate: null,
+    key: 'selection'
 };
 
 export default function (state = initialState, action) {
@@ -10,7 +14,8 @@ export default function (state = initialState, action) {
         case SEARCH:
             return {
                 ...state,
-                search
+                search,
+                selectionRange
             }
 
         default:
