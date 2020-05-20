@@ -2,15 +2,16 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getPurchases, deletePurchase } from '../../actions/purchases';
-import { DateRangePicker } from 'react-date-range';
 
 
+import 'react-date-range/dist/styles.css'; // main css file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 
 export class Purchases extends Component {
     constructor() {
         super();
         this.state = {
-            search: ''
+            search: '',
 
         }
     }
@@ -18,7 +19,6 @@ export class Purchases extends Component {
         purchases: PropTypes.array.isRequired,
         getPurchases: PropTypes.func.isRequired,
         deletePurchase: PropTypes.func.isRequired,
-
 
     };
 
@@ -38,11 +38,7 @@ export class Purchases extends Component {
 
 
     render() {
-        const selectionRange = {
-            startDate: new Date(),
-            endDate: new Date(),
-            key: 'selection',
-        }
+
 
         let filteredPurchases = this.props.purchases.filter((purchase) => {
             return (purchase.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1) || (purchase.notes.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);
@@ -59,10 +55,17 @@ export class Purchases extends Component {
                     value={this.state.search}
                     onChange={this.updateSearch.bind(this)} />
 
-                <DateRangePicker
-                    ranges={[selectionRange]}
-                    onChange={this.handleSelect}
-                />
+                <input
+                    type="text"
+                    placeholder='Start Date'
+                    value={this.state.startDate}
+                    onChange={this.updateSearch.bind(this)} />
+
+                <input
+                    type="text"
+                    placeholder='End Date'
+                    value={this.state.endDate}
+                    onChange={this.updateSearch.bind(this)} />
 
                 <table className="table table-striped">
                     <thead>
@@ -95,7 +98,6 @@ export class Purchases extends Component {
 const mapStateToProps = state => ({
     purchases: state.purchases.purchases,
     search: state.search.search,
-    selectionRange: state.search.selectionRange,
     startDate: state.search.startDate,
     endDate: state.search.endDate
 });

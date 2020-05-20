@@ -7,7 +7,7 @@ import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import * as locales from 'react-date-range/dist/locale';
 
-class MyComponent extends Component {
+class Calendar extends Component {
     handleSelect(ranges) {
         console.log(ranges);
         // {

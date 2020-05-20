@@ -1,11 +1,12 @@
 import { SEARCH } from "../actions/types.js";
+import { addDays } from 'date-fns';
 
 const initialState = {
     purchases: [],
+    focusedInput: null,
     search: '',
-    selectionRange: '',
     startDate: new Date(),
-    endDate: null,
+    endDate: addDays(new Date(), 7),
     key: 'selection'
 };
 
