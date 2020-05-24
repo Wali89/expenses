@@ -12,7 +12,8 @@ export class Purchases extends Component {
         super();
         this.state = {
             search: '',
-
+            startDate: '',
+            endDate: '',
         }
     }
     static propTypes = {
@@ -31,6 +32,15 @@ export class Purchases extends Component {
         this.setState({ search: event.target.value });
     }
 
+    updateStartDate(event) {
+        console.log(event.target.value)
+        this.setState({ startDate: event.target.value });
+    }
+
+    updateEndDate(event) {
+        this.setState({ endDate: event.target.value });
+    }
+
     handleSelect(e) {
         console.log(e)
     }
@@ -41,7 +51,7 @@ export class Purchases extends Component {
 
 
         let filteredPurchases = this.props.purchases.filter((purchase) => {
-            return (purchase.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1) || (purchase.notes.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1);
+            return (purchase.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1) || (purchase.notes.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 && purchase.purchase_date >= this.state.startDate && purchase.purchase_date <= this.state.endDate);
         })
         return (
 
@@ -56,16 +66,16 @@ export class Purchases extends Component {
                     onChange={this.updateSearch.bind(this)} />
 
                 <input
-                    type="text"
+                    type="date"
                     placeholder='Start Date'
                     value={this.state.startDate}
-                    onChange={this.updateSearch.bind(this)} />
+                    onChange={this.updateStartDate.bind(this)} />
 
                 <input
-                    type="text"
+                    type="date"
                     placeholder='End Date'
                     value={this.state.endDate}
-                    onChange={this.updateSearch.bind(this)} />
+                    onChange={this.updateEndDate.bind(this)} />
 
                 <table className="table table-striped">
                     <thead>

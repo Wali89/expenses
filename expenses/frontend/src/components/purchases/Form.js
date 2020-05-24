@@ -57,10 +57,10 @@ export class Form extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <label>Date (YYYY-MM-DD)</label>
+                        <label>Date</label>
                         <input
                             className="form-control"
-                            type="datetime"
+                            type="date"
                             name="purchase_date"
                             onChange={this.onChange}
                             value={purchase_date}

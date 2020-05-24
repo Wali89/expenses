@@ -3,11 +3,9 @@ import { addDays } from 'date-fns';
 
 const initialState = {
     purchases: [],
-    focusedInput: null,
     search: '',
-    startDate: new Date(),
-    endDate: addDays(new Date(), 7),
-    key: 'selection'
+    startDate: '',
+    endDate: ''
 };
 
 export default function (state = initialState, action) {
