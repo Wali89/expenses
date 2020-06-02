@@ -3,6 +3,7 @@ import Form from './Form';
 import Purchases from './Purchases';
 
 
+
 export default function Dashboard() {
     return (
         <Fragment>

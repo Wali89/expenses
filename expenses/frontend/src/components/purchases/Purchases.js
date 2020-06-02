@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { getPurchases, deletePurchase } from '../../actions/purchases';
 
 
+
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 
@@ -12,8 +13,8 @@ export class Purchases extends Component {
         super();
         this.state = {
             search: '',
-            startDate: '',
-            endDate: '',
+            startDate: '1977-01-01',
+            endDate: '2035-01-20',
         }
     }
     static propTypes = {
@@ -33,8 +34,8 @@ export class Purchases extends Component {
     }
 
     updateStartDate(event) {
-        console.log(event.target.value)
         this.setState({ startDate: event.target.value });
+        console.log(this.state.startDate)
     }
 
     updateEndDate(event) {
@@ -51,7 +52,7 @@ export class Purchases extends Component {
 
 
         let filteredPurchases = this.props.purchases.filter((purchase) => {
-            return (purchase.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1) || (purchase.notes.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 && purchase.purchase_date >= this.state.startDate && purchase.purchase_date <= this.state.endDate);
+            return ((purchase.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1) || (purchase.notes.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1)) && ((purchase.purchase_date >= this.state.startDate) && (purchase.purchase_date <= this.state.endDate));
         })
         return (
 
