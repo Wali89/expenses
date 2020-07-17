@@ -4,17 +4,13 @@ import PropTypes from 'prop-types';
 import { getPurchases, deletePurchase } from '../../actions/purchases';
 
 
-
-import 'react-date-range/dist/styles.css'; // main css file
-import 'react-date-range/dist/theme/default.css'; // theme css file
-
 export class Purchases extends Component {
     constructor() {
         super();
         this.state = {
             search: '',
-            startDate: '1977-01-01',
-            endDate: '2035-01-20',
+            startDate: '2020-01-01',
+            endDate: '2021-01-20',
         }
     }
     static propTypes = {
@@ -69,13 +65,13 @@ export class Purchases extends Component {
                 <input
                     type="date"
                     placeholder='Start Date'
-                    value={this.state.startDate}
+                    value={'2020-01-01'}
                     onChange={this.updateStartDate.bind(this)} />
 
                 <input
                     type="date"
                     placeholder='End Date'
-                    value={this.state.endDate}
+                    value={'2022-01-01'}
                     onChange={this.updateEndDate.bind(this)} />
 
                 <table className="table table-striped">
@@ -108,9 +104,7 @@ export class Purchases extends Component {
 
 const mapStateToProps = state => ({
     purchases: state.purchases.purchases,
-    search: state.search.search,
-    startDate: state.search.startDate,
-    endDate: state.search.endDate
+    search: state.search.search
 });
 
 export default connect(mapStateToProps, { getPurchases, deletePurchase })(Purchases);

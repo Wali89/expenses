@@ -1,11 +1,9 @@
 import { SEARCH } from "../actions/types.js";
-import { addDays } from 'date-fns';
+
 
 const initialState = {
     purchases: [],
-    search: '',
-    startDate: '',
-    endDate: ''
+    search: ''
 };
 
 export default function (state = initialState, action) {
@@ -14,7 +12,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 search,
-                selectionRange
+
             }
 
         default:
