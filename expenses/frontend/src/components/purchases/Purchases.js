@@ -9,8 +9,8 @@ export class Purchases extends Component {
         super();
         this.state = {
             search: '',
-            startDate: '2020-01-01',
-            endDate: '2021-01-20',
+            startDate: '',
+            endDate: ''
         }
     }
     static propTypes = {
@@ -65,13 +65,13 @@ export class Purchases extends Component {
                 <input
                     type="date"
                     placeholder='Start Date'
-                    value={'2020-01-01'}
+                    value={this.state.startDate}
                     onChange={this.updateStartDate.bind(this)} />
 
                 <input
                     type="date"
                     placeholder='End Date'
-                    value={'2022-01-01'}
+                    value={this.state.endDate}
                     onChange={this.updateEndDate.bind(this)} />
 
                 <table className="table table-striped">
@@ -104,7 +104,10 @@ export class Purchases extends Component {
 
 const mapStateToProps = state => ({
     purchases: state.purchases.purchases,
-    search: state.search.search
+    search: state.search.search,
+    startDate: state.search.startDate,
+    endDate: state.search.endDate
+
 });
 
 export default connect(mapStateToProps, { getPurchases, deletePurchase })(Purchases);

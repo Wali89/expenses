@@ -3,7 +3,10 @@ import { SEARCH } from "../actions/types.js";
 
 const initialState = {
     purchases: [],
-    search: ''
+    search: '',
+    startDate: '',
+    endDate: ''
+
 };
 
 export default function (state = initialState, action) {
@@ -12,6 +15,8 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 search,
+                startDate: '',
+                endDate: ''
 
             }
 
