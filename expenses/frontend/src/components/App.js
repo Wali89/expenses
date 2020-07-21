@@ -7,6 +7,7 @@ import AlertTemplate from 'react-alert-template-basic';
 
 import Header from './layout/Header';
 import Dashboard from './purchases/Dashboard';
+import Clients from './purchases/Clients';
 import Alerts from './layout/Alerts';
 import Login from './accounts/Login';
 import Register from './accounts/Register';
@@ -28,7 +29,7 @@ class App extends Component {
     componentDidMount() {
         store.dispatch(loadUser())
     }
-    s
+
     render() {
         return (
             <Provider store={store}>
@@ -43,6 +44,7 @@ class App extends Component {
                                     <PrivateRoute exact path="/" component={Dashboard} />
                                     <Route exact path="/register" component={Register} />
                                     <Route exact path="/login" component={Login} />
+                                    <PrivateRoute exact path="/clients" component={Clients} />
                                 </Switch>
                             </div>
 

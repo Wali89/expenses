@@ -5,24 +5,16 @@ from .serializers import PurchaseSerializer, ClientSerializer, ProjectSerializer
 
 class PurchaseViewSet(viewsets.ModelViewSet):
 
-    permission_classes = [
-        permissions.IsAuthenticated
-    ]
-
     serializer_class = PurchaseSerializer
 
     def get_queryset(self):
-        return self.request.project.purchases.all()
+        return Purchase.objects.all()
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
 
 class ClientViewSet(viewsets.ModelViewSet):
-
-    permission_classes = [
-        permissions.IsAuthenticated
-    ]
 
     serializer_class = ClientSerializer
 

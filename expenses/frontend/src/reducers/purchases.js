@@ -1,7 +1,8 @@
-import { GET_PURCHASES, DELETE_PURCHASE, ADD_PURCHASE } from "../actions/types.js"
+import { GET_PURCHASES, DELETE_PURCHASE, ADD_PURCHASE, GET_CLIENTS } from "../actions/types.js"
 
 const initialState = {
-    purchases: []
+    purchases: [],
+    clients: []
 }
 
 export default function (state = initialState, action) {
@@ -22,7 +23,14 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 purchases: [...state.purchases, action.payload]
-            }
+            };
+
+        case GET_CLIENTS:
+            return {
+                ...state,
+                clients: action.payload
+            };
+
         default:
             return state;
     }
