@@ -40,9 +40,6 @@ class Purchase(models.Model):
     project = models.ForeignKey(
         Project, related_name="purchases", on_delete=models.CASCADE
     )
-    client = models.ForeignKey(
-        Client, related_name="purchases", on_delete=models.CASCADE
-    )
 
     def __str__(self):
         return self.name
