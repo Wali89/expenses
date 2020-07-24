@@ -27,14 +27,10 @@ class ClientViewSet(viewsets.ModelViewSet):
 
 class ProjectViewSet(viewsets.ModelViewSet):
 
-    permission_classes = [
-        permissions.IsAuthenticated
-    ]
-
     serializer_class = ProjectSerializer
 
     def get_queryset(self):
-        return self.request.client.projects.all()
+        return Project.objects.all()
 
     def perform_create(self, serializer):
         serializer.save()

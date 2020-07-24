@@ -59,3 +59,16 @@ export const getClients = () => (dispatch, getState) => {
         })
         .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
 };
+
+
+export const getProjects = () => (dispatch, getState) => {
+    axios
+        .get('/api/projects/', tokenConfig(getState))
+        .then(res => {
+            dispatch({
+                type: GET_PROJECTS,
+                payload: res.data
+            });
+        })
+        .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
+};

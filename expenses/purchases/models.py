@@ -22,7 +22,7 @@ class Project(models.Model):
     due_date = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
     client = models.ForeignKey(
-        Client, on_delete=models.CASCADE
+        Client, related_name='projects', on_delete=models.CASCADE
     )
 
     def __str__(self):
@@ -39,6 +39,9 @@ class Purchase(models.Model):
         User, related_name="purchases", on_delete=models.CASCADE, null=True)
     project = models.ForeignKey(
         Project, related_name="purchases", on_delete=models.CASCADE
+    )
+    client = models.ForeignKey(
+        Client, related_name="purchases", on_delete=models.CASCADE
     )
 
     def __str__(self):

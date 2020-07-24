@@ -2,7 +2,8 @@ import { GET_PURCHASES, DELETE_PURCHASE, ADD_PURCHASE, GET_CLIENTS } from "../ac
 
 const initialState = {
     purchases: [],
-    clients: []
+    clients: [],
+    projects: []
 }
 
 export default function (state = initialState, action) {
@@ -31,6 +32,11 @@ export default function (state = initialState, action) {
                 clients: action.payload
             };
 
+        case GET_PURCHASES:
+            return {
+                ...state,
+                projects: action.payload
+            }
         default:
             return state;
     }
