@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createMessage, returnErrors } from './messages'
 import { tokenConfig } from './auth'
 
-import { GET_PURCHASES, DELETE_PURCHASE, GET_ERRORS, ADD_PURCHASE, SEARCH, GET_CLIENTS } from './types';
+import { GET_PURCHASES, DELETE_PURCHASE, GET_ERRORS, ADD_PURCHASE, SEARCH, GET_CLIENTS, RECIEVE_PROJECTS, GET_PROJECTS } from './types';
 
 // GET PURCHASES
 
@@ -61,14 +61,23 @@ export const getClients = () => (dispatch, getState) => {
 };
 
 
-export const getProjects = () => (dispatch, getState) => {
+export const getProjects = (id) => (dispatch, getState) => {
     axios
-        .get('/api/projects/', tokenConfig(getState))
-        .then(res => {
-            dispatch({
-                type: GET_PROJECTS,
-                payload: res.data
-            });
-        })
+        .get(`/api/clients/${id}`, tokenConfig(getState))
+        .then(res => res.json())
+        .then(json => dispatch(recieveProjects(id, json)))
         .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
 };
+
+export const recieveProjects = () => (id, json) => {
+
+    dispatch({
+        type: RECIEVE_PROJECTS,
+        id,
+        payload: json.data
+    });
+
+
+};
+
+

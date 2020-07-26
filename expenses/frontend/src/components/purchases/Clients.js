@@ -30,14 +30,14 @@ export class Clients extends Component {
                     <thead>
                         <th>ID</th>
                         <th>Name</th>
-
-                        <th />
+                        <th>Projects</th>
                     </thead>
                     <tbody>
                         {clients.map(client => (
                             <tr key={client.id}>
                                 <td>{client.id}</td>
                                 <td>{client.name}</td>
+                                <td>{client.projects.length}</td>
                             </tr>
                         ))}
                     </tbody>

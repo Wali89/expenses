@@ -7,7 +7,7 @@ class ClientSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Client
-        fields = ['name', 'projects']
+        fields = ['id', 'name', 'projects']
 
 
 class PurchaseSerializer(serializers.ModelSerializer):
@@ -21,4 +21,5 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ['name', 'client', 'purchases']
+        fields = ['name', 'client', 'budget', 'charge',
+                  'start_date', 'due_date', 'description', 'purchases']

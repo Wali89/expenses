@@ -14,3 +14,5 @@ export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
 export const SEARCH = 'SEARCH';
 export const GET_CLIENTS = 'GET_CLIENTS';
+export const GET_PROJECTS = 'GET_PROJECTS';
+export const RECIEVE_PROJECTS = 'RECIEVE_PROJECTS'
