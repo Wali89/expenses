@@ -1,4 +1,4 @@
-import { GET_PURCHASES, DELETE_PURCHASE, ADD_PURCHASE, GET_CLIENTS } from "../actions/types.js"
+import { GET_PURCHASES, DELETE_PURCHASE, ADD_PURCHASE, GET_CLIENTS, RECIEVE_PROJECTS } from "../actions/types.js"
 
 const initialState = {
     purchases: [],

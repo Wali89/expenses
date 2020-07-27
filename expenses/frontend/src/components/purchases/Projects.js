@@ -25,7 +25,7 @@ export class Projects extends Component {
 
         return (
             <Fragment>
-
+                <h1></h1>
                 <table className="table table-striped">
                     <thead>
                         <th>ID</th>
@@ -52,4 +52,4 @@ const mapStateToProps = state => ({
     clients: state.purchases.clients,
 });
 
-export default connect(mapStateToProps, { getClients })(Clients);
+export default connect(mapStateToProps, { getProjects })(Projects);

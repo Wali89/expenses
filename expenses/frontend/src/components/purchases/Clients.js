@@ -50,6 +50,7 @@ export class Clients extends Component {
 }
 const mapStateToProps = state => ({
     clients: state.purchases.clients,
+
 });
 
 export default connect(mapStateToProps, { getClients })(Clients);
