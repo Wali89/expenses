@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getClients } from '../../actions/purchases';
+import { Link } from 'react-router-dom';
 
 export class Clients extends Component {
     constructor() {
@@ -36,7 +37,12 @@ export class Clients extends Component {
                         {clients.map(client => (
                             <tr key={client.id}>
                                 <td>{client.id}</td>
-                                <td>{client.name}</td>
+                                <td><Link to={{
+                                    pathname: `/clients/${client.id}`,
+                                    state: {
+                                        name: this.props.name
+                                    }
+                                }}> {client.name} </Link></td>
                                 <td>{client.projects.length}</td>
                             </tr>
                         ))}

@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getProjects } from '../../actions/purchases';
 
-export class Projects extends Component {
+
+class Projects extends Component {
     constructor() {
         super();
         this.state = {
+            clients: [],
             projects: []
         }
     }
@@ -16,12 +18,12 @@ export class Projects extends Component {
     }
 
     componentDidMount() {
-        this.props.getProjects();
+        this.props.getProjects(this.props.match.params.id, this.state.page);
     }
 
 
     render() {
-        let clients = this.props.clients
+        let projects = this.props.projects
 
         return (
             <Fragment>
@@ -34,7 +36,7 @@ export class Projects extends Component {
                         <th />
                     </thead>
                     <tbody>
-                        {clients.map(client => (
+                        {projects.map(client => (
                             <tr key={client.id}>
                                 <td>{client.id}</td>
                                 <td>{client.name}</td>
@@ -50,6 +52,8 @@ export class Projects extends Component {
 }
 const mapStateToProps = state => ({
     clients: state.purchases.clients,
+    projects: state.purchases.projects
 });
 
 export default connect(mapStateToProps, { getProjects })(Projects);
+

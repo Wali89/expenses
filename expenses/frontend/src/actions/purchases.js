@@ -61,12 +61,14 @@ export const getClients = () => (dispatch, getState) => {
 };
 
 
-export const getProjects = (id) => (dispatch, getState) => {
-    axios
-        .get(`/api/clients/${id}`, tokenConfig(getState))
-        .then(res => res.json())
-        .then(json => dispatch(recieveProjects(id, json)))
-        .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
+export function getProjects(id) {
+    return (dispatch) => {
+        axios
+            .get(`/api/clients/${id}/`)
+            .then(res => res.json())
+            .then(projects => dispatch({ type: RECIEVE_PROJECTS, payload: projects }))
+            .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
+    }
 };
 
 export const recieveProjects = () => (id, json) => {

@@ -42,7 +42,7 @@ export default function (state = initialState, action) {
         case RECIEVE_PROJECTS:
             return {
                 ...state,
-                projects: action.payload
+                projects: action.payload.projects
             }
         default:
             return state;
