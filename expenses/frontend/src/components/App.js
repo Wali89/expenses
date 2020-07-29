@@ -7,7 +7,7 @@ import AlertTemplate from 'react-alert-template-basic';
 
 import Header from './layout/Header';
 import Dashboard from './purchases/Dashboard';
-import Clients from './purchases/Clients';
+import ClientsContainer from './purchases/Clients';
 import Projects from './purchases/Projects';
 import Alerts from './layout/Alerts';
 import Login from './accounts/Login';
@@ -46,7 +46,7 @@ class App extends Component {
                                     <Route exact path="/register" component={Register} />
                                     <Route exact path="/login" component={Login} />
                                     <PrivateRoute exact path="/clients/:id" components={Projects} />
-                                    <PrivateRoute exact path="/clients" component={Clients} />
+                                    <PrivateRoute exact path="/clients" component={ClientsContainer} />
                                 </Switch>
                             </div>
 

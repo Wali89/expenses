@@ -2,9 +2,10 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getClients } from '../../actions/purchases';
-import { Link } from 'react-router-dom';
+import Clients from '../layout/Clients'
 
-export class Clients extends Component {
+
+export class ClientsContainer extends Component {
     constructor() {
         super();
         this.state = {
@@ -22,34 +23,9 @@ export class Clients extends Component {
 
 
     render() {
-        let clients = this.props.clients
 
         return (
-            <Fragment>
-
-                <table className="table table-striped">
-                    <thead>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Projects</th>
-                    </thead>
-                    <tbody>
-                        {clients.map(client => (
-                            <tr key={client.id}>
-                                <td>{client.id}</td>
-                                <td><Link to={{
-                                    pathname: `/clients/${client.id}`,
-                                    state: {
-                                        name: this.props.name
-                                    }
-                                }}> {client.name} </Link></td>
-                                <td>{client.projects.length}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-
-                </table>
-            </Fragment>
+            <div> <Clients /> </div>
         )
     }
 
@@ -59,4 +35,4 @@ const mapStateToProps = state => ({
 
 });
 
-export default connect(mapStateToProps, { getClients })(Clients);
+export default connect(mapStateToProps, { getClients })(ClientsContainer);
