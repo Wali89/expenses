@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Client from './Client';
+import Client from './client';
 import { connect } from 'react-redux';
 
 class Clients extends Component {
@@ -9,7 +9,7 @@ class Clients extends Component {
 
     render() {
         return (
-            <div id="">
+            <div id="clients">
                 <div className="ui list">
                     {this.renderSources()}
                 </div>

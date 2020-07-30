@@ -5,11 +5,11 @@ import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom"
 import { positions, Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 
-import Header from './layout/Header';
-import Dashboard from './purchases/Dashboard';
-import ClientsContainer from './purchases/Clients';
-import Projects from './purchases/Projects';
-import Alerts from './layout/Alerts';
+import Header from './components/header';
+import Dashboard from './containers/dashboard';
+import ClientsContainer from './containers/clients';
+import Projects from './containers/projects';
+import Alerts from './components/alerts';
 import Login from './accounts/Login';
 import Register from './accounts/Register';
 import PrivateRoute from "./common/PrivateRoute"

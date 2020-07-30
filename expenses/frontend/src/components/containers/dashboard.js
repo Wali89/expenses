@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import Form from './Form';
-import Purchases from './Purchases';
+import Form from './form';
+import Purchases from './purchases';
 
 
 
