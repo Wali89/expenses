@@ -7,6 +7,7 @@ import AlertTemplate from 'react-alert-template-basic';
 
 import Header from './components/header';
 import Dashboard from './containers/dashboard';
+import ErrorBoundary from './containers/dashboard';
 import ClientsContainer from './containers/clients';
 import Projects from './containers/projects';
 import Alerts from './components/alerts';
