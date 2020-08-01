@@ -47,9 +47,7 @@ export class Purchases extends Component {
     render() {
 
 
-        let filteredPurchases = this.props.purchases.filter((purchase) => {
-            return ((purchase.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1) || (purchase.notes.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1)) && ((purchase.purchase_date >= this.state.startDate) && (purchase.purchase_date <= this.state.endDate));
-        })
+        let filteredPurchases = this.props.purchases
         return (
 
 

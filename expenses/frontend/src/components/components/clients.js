@@ -3,11 +3,12 @@ import Client from './client';
 import { connect } from 'react-redux';
 
 class Clients extends Component {
-    renderSources = () => {
-        return (this.props.clients.map((client, index) => <Client key={index} id={client.id} name={client.name} />))
-    }
+
 
     render() {
+        this.renderSources = () => {
+            return (this.props.clients.map((client, index) => <Client key={index} id={client.id} name={client.name} />))
+        }
         return (
             <div id="clients">
                 <div className="ui list">

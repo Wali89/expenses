@@ -6,8 +6,8 @@ class Client extends Component {
 
     render() {
         return (
-            <div className="channel">
-                <h3 className="channel-link"> <Link
+            <div className="client">
+                <h3 className="client"> <Link
                     style={{ textDecoration: 'none', color: '#373737' }}
                     to={{
                         pathname: `/clients/${this.props.id}`,

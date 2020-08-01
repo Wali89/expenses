@@ -48,19 +48,18 @@ export const addPurchase = purchase => (dispatch, getState) => {
 };
 
 
-export function getClients() {
-    return (dispatch) => {
-        dispatch({ type: LOADING_CLIENTS });
-        return axios
-            .get('/api/clients', tokenConfig(getState))
-            .then(res => {
-                dispatch({
-                    type: GET_CLIENTS,
-                    payload: res.data
-                });
-            })
-            .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
-    }
+export const getClients = () => (dispatch, getState) => {
+
+    axios
+        .get('/api/clients/', tokenConfig(getState))
+        .then(res => {
+            dispatch({
+                type: GET_CLIENTS,
+                payload: res.data
+            });
+        })
+        .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
+
 };
 
 
