@@ -9,7 +9,7 @@ import Header from './components/header';
 import Dashboard from './containers/dashboard';
 import ErrorBoundary from './containers/dashboard';
 import ClientsContainer from './containers/clients';
-import Projects from './containers/projects';
+import ProjectsContainer from './containers/projects';
 import Alerts from './components/alerts';
 import Login from './accounts/Login';
 import Register from './accounts/Register';
@@ -46,7 +46,7 @@ class App extends Component {
                                     <PrivateRoute exact path="/" component={Dashboard} />
                                     <Route exact path="/register" component={Register} />
                                     <Route exact path="/login" component={Login} />
-                                    <PrivateRoute exact path="/clients/:id" components={Projects} />
+                                    <PrivateRoute path="/clients/:id" components={ProjectsContainer} />
                                     <PrivateRoute exact path="/clients" component={ClientsContainer} />
                                 </Switch>
                             </div>

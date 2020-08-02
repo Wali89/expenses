@@ -2,18 +2,16 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getProjects } from '../../actions/purchases';
+import Projects from '../components/projects';
 
-
-class Projects extends Component {
+class ProjectsContainer extends Component {
     constructor() {
         super();
-        this.state = {
-            clients: [],
-            projects: []
-        }
+
     }
     static propTypes = {
-        getProjects: PropTypes.func.isRequired
+        getProjects: PropTypes.func.isRequired,
+        projects: PropTypes.func.isRequired
 
     }
 
@@ -23,37 +21,19 @@ class Projects extends Component {
 
 
     render() {
-        let projects = this.props.projects
+
 
         return (
-            <Fragment>
-                <h1></h1>
-                <table className="table table-striped">
-                    <thead>
-                        <th>ID</th>
-                        <th>Name</th>
-
-                        <th />
-                    </thead>
-                    <tbody>
-                        {projects.map(client => (
-                            <tr key={client.id}>
-                                <td>{client.id}</td>
-                                <td>{client.name}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-
-                </table>
-            </Fragment>
+            <div>
+                <Projects projects={this.props.projects} />
+            </div>
         )
     }
 
 }
 const mapStateToProps = state => ({
-    clients: state.purchases.clients,
     projects: state.purchases.projects
 });
 
-export default connect(mapStateToProps, { getProjects })(Projects);
+export default connect(mapStateToProps, { getProjects })(ProjectsContainer);
 

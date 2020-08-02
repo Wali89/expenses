@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 
-class Client extends Component {
+class Project extends Component {
 
     render() {
         return (
-            <div className="client">
-                <p className="client"> <Link
+            <div className="project">
+                <p className="project"> <Link
                     style={{ textDecoration: 'none', color: '#373737' }}
                     to={{
                         pathname: `/clients/${this.props.id}`,
@@ -22,4 +22,4 @@ class Client extends Component {
     }
 }
 
-export default Client;
+export default Project;
