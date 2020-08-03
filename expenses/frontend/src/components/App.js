@@ -8,7 +8,7 @@ import AlertTemplate from 'react-alert-template-basic';
 import Header from './components/header';
 import Dashboard from './containers/dashboard';
 import ErrorBoundary from './containers/dashboard';
-import ClientsContainer from './containers/clients';
+import ClientsContainer from './containers/ClientsPage';
 import ProjectsContainer from './containers/projects';
 import Alerts from './components/alerts';
 import Login from './accounts/Login';
@@ -46,7 +46,7 @@ class App extends Component {
                                     <PrivateRoute exact path="/" component={Dashboard} />
                                     <Route exact path="/register" component={Register} />
                                     <Route exact path="/login" component={Login} />
-                                    <PrivateRoute path="/clients/:id" components={ProjectsContainer} />
+
                                     <PrivateRoute exact path="/clients" component={ClientsContainer} />
                                 </Switch>
                             </div>

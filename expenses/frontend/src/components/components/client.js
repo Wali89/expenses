@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, useRouteMatch, Switch } from 'react-router-dom';
 
 
-class Client extends Component {
+
+class ClientList extends Component {
 
     render() {
+        let { path, url } = useRouteMatch();
         return (
             <div className="client">
                 <p className="client"> <Link
@@ -16,10 +18,9 @@ class Client extends Component {
                         }
                     }}>{this.props.name} </Link> </p>
 
-
             </div >
         )
     }
 }
 
-export default Client;
+export default ClientList;

@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import Client from './client';
 import { connect } from 'react-redux';
+import { useRouteMatch, Link } from 'react-router-dom';
 
 class Clients extends Component {
 
 
     render() {
         this.renderSources = () => {
-            return (this.props.clients.map((client, index) => <Client key={index} id={client.id} name={client.name} />))
+            return (this.props.clients.map((client, index) => <Link key={client.id} to={`/clients/${client.id}`} >{client.name}</Link>))
         }
+
         return (
             <div id="clients">
                 <div className="ui list">

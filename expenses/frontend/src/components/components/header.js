@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
+import ProjectsContainer from '../containers/projects'
 
 export class Header extends Component {
 
@@ -61,7 +62,11 @@ export class Header extends Component {
           </div>
           {isAuthenticated ? authLinks : guestLinks}
         </div>
+        <div>
+          <Route exact path="/clients/:id" components={ProjectsContainer} />
+        </div>
       </nav>
+
     )
   }
 }

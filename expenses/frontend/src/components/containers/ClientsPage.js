@@ -2,7 +2,9 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { getClients } from '../../actions/purchases';
 import PropTypes from 'prop-types';
-import Clients from '../components/Clients';
+import ClientList from '../components/ClientList';
+import { Route, Switch } from 'react-router-dom';
+import ClientShow from './ClientShow'
 
 
 class ClientsContainer extends Component {
@@ -27,7 +29,13 @@ class ClientsContainer extends Component {
 
         return (
             <div>
-                <Clients clients={this.props.clients} />
+                <ClientList clients={this.props.clients} />
+                <Switch>
+                    <Route path={`${this.props.match.url}/:clientId`} component={ClientShow} />
+                    <Route exact path={match.url} render={() => (
+                        <h3>Please select a client from the list.</h3>
+                    )} />
+                </Switch>
             </div>
 
         )
