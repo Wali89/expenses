@@ -62,9 +62,7 @@ export class Header extends Component {
           </div>
           {isAuthenticated ? authLinks : guestLinks}
         </div>
-        <div>
-          <Route exact path="/clients/:id" components={ProjectsContainer} />
-        </div>
+
       </nav>
 
     )

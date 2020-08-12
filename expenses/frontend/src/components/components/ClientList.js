@@ -1,29 +1,30 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { useRouteMatch, Link } from 'react-router-dom';
 
-class Clients extends Component {
-
-
+class ClientsList extends Component {
+    renderClients = () => {
+        return (this.props.clients.map(client =>
+            <li key={client.id}>
+                <Link to={`/clients/${client.id}`}>{client.name}</Link>
+            </li>
+        ));
+    }
     render() {
-        this.renderSources = () => {
-            return (this.props.clients.map((client, index) => <Link key={client.id} to={`/clients/${client.id}`} >{client.name}</Link>))
-        }
 
         return (
-            <div id="clients">
+            <div>
                 <div className="ui list">
-                    {this.renderSources()}
+                    {this.renderClients()}
                 </div>
             </div>
-        )
+        );
     }
-}
+};
 
 const mapStateToProps = state => {
     return {
         clients: state.purchases.clients,
     }
 }
-
-export default connect(mapStateToProps)(Clients);
+export default connect(mapStateToProps)(ClientsList);

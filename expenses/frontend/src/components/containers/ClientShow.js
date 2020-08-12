@@ -1,12 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const ClientsShow = props => {
+const ClientShow = ({ client }) => {
 
-    return (
-        <div>
-            <h3>Movies Show Component!</h3>
-        </div>
-    );
+    <div>
+        <h3>{client.name}</h3>
+
+    </div>
 }
 
-export default ClientsShow;
+const mapStateToProps = (state, ownProps) => {
+    const client = state.purchases.clients.find(client => client.id === ownProps.match.params.clientId)
+    if (client) {
+        console.log(ownProps)
+        return { client }
+    } else {
+        console.log(ownProps)
+        return { client: {} }
+    }
+}
+
+export default connect(mapStateToProps)(ClientShow);
