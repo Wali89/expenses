@@ -27,4 +27,4 @@ const mapStateToProps = state => {
         clients: state.purchases.clients,
     }
 }
-export default connect(mapStateToProps)(ClientsList);
+export default connect(mapStateToProps)(ClientsList); 
