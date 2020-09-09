@@ -32,12 +32,14 @@ class ClientsContainer extends Component {
 
         return (
             <div>
-                <ClientsList clients={this.state.clients} />
+                <h3>Please select a client from the list.</h3>
+                <ClientsList clients={clients} />
                 <Switch>
-                    <Route exact path={`${match.url}/:clientId`} component={ClientShow} />
                     <Route exact path={match.url} render={() => (
-                        <h3>Please select a client from the list.</h3>
+                        <div></div>
                     )} />
+                    <Route exact path={`${match.url}/:clientId`} component={ClientShow} />
+
 
                 </Switch>
 

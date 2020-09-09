@@ -1,21 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import useParams from "react-router-dom"
 
-const ClientShow = ({ client }) => {
+class ClientShow extends Component {
 
-    <div>
-        <h3>{client.name}</h3>
-
-    </div>
+    constructor(props) {
+        super(props);
+        this.state = {
+            projects: []
+        }
+    }
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const client = state.purchases.clients.find(client => client.id === ownProps.match.params.clientId)
+    const client = state.purchases.clients.filter(client => client.id == ownProps.match.params.clientId)
     if (client) {
-        console.log(ownProps)
+
         return { client }
     } else {
-        console.log(ownProps)
+
         return { client: {} }
     }
 }
