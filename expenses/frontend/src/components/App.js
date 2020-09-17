@@ -18,6 +18,7 @@ import PrivateRoute from "./common/PrivateRoute"
 import { Provider } from 'react-redux';
 import store from '../store';
 import { loadUser } from '../actions/auth'
+import ClientShow from './containers/ClientShow';
 
 // Alert Options
 const alertOptions = {
@@ -48,6 +49,7 @@ class App extends Component {
                                     <Route exact path="/login" component={Login} />
 
                                     <PrivateRoute exact path="/clients" component={ClientsContainer} />
+                                    <Route path={`client/:clientId`} component={ClientShow} />
                                 </Switch>
                             </div>
 

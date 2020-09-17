@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import useParams from "react-router-dom"
+import { getProjects } from '../../actions/purchases';
+import PropTypes from 'prop-types';
 
 class ClientShow extends Component {
 
@@ -10,7 +11,22 @@ class ClientShow extends Component {
             projects: []
         }
     }
+    static propTypes = {
+
+        getProjects: PropTypes.func.isRequired
+
+    };
+
+
+    render() {
+
+        return (
+
+            <h1>Hello</h1>
+        )
+    }
 }
+
 
 const mapStateToProps = (state, ownProps) => {
     const client = state.purchases.clients.filter(client => client.id == ownProps.match.params.clientId)
@@ -23,4 +39,4 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps)(ClientShow);
+export default connect(mapStateToProps, { getProjects })(ClientShow);
