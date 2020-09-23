@@ -34,6 +34,7 @@ class App extends Component {
     }
 
     render() {
+        const { match } = this.props
         return (
             <Provider store={store}>
                 <AlertProvider template={AlertTemplate} {...alertOptions}>
@@ -49,7 +50,7 @@ class App extends Component {
                                     <Route exact path="/login" component={Login} />
 
                                     <PrivateRoute exact path="/clients" component={ClientsContainer} />
-                                    <Route path={`client/:clientId`} component={ClientShow} />
+                                    <Route path={`${match.url}/:clientId`} component={ClientShow} />
                                 </Switch>
                             </div>
 
