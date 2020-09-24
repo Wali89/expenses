@@ -10,6 +10,19 @@ class ClientsList extends Component {
             </li>
         ));
     }
+
+    selectedClientHandler = clientId => {
+        if (clientId !== null) {
+            this.setState({ id: clientId, clientDetails: true });
+        }
+    }
+
+    renderRedirect = () => {
+        if (this.state.clientDetails) {
+            return <Redirect to={`/clients/${this.state.id}`} />;
+        }
+    };
+
     render() {
 
         return (
