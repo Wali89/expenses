@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import Client from './Client';
+import Card from './Card'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-class ClientsList extends Component {
+export default class ClientsList extends Component {
+    state = {
+        id: null,
+        clientDetails: false,
+    }
     renderClients = () => {
         return (this.props.clients.map(client =>
             <li key={client.id}>
@@ -24,7 +31,25 @@ class ClientsList extends Component {
     };
 
     render() {
+        const clients = this.props.clients;
+        let clientInfo = null;
+        if (clients.length > 0) {
+            clientInfo = clients.map(client => {
+                return (
+                    <Card
+                        key={client.id}
+                        clientId={client.id}
+                        goToClientDetails={this.selectedClientHandler}
+                    >
+                        <Client
+                            title={client.name}
 
+
+                        />
+                    </Card>
+                );
+            });
+        }
         return (
             <div>
                 <div className="ui list">
