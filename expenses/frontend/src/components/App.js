@@ -50,7 +50,7 @@ class App extends Component {
                                     <Route exact path="/login" component={Login} />
 
                                     <PrivateRoute exact path="/clients" component={ClientsContainer} />
-                                    <Route path={`${match.url}/:clientId`} component={ClientShow} />
+                                    <Route path="/clients/:id" component={ClientShow} />
                                 </Switch>
                             </div>
 

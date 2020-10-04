@@ -53,16 +53,11 @@ export default class ClientsList extends Component {
         return (
             <div>
                 <div className="ui list">
-                    {this.renderClients()}
+                    {this.renderRedirect()}
+                    {clientInfo}
                 </div>
             </div>
         );
     }
 };
 
-const mapStateToProps = state => {
-    return {
-        clients: state.purchases.clients,
-    }
-}
-export default connect(mapStateToProps)(ClientsList); 

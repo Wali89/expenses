@@ -9,12 +9,11 @@ import ClientShow from './ClientShow'
 
 class ClientsContainer extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            clients: []
-        }
-    }
+    state = {
+        clients: [],
+        loading: true,
+        error: false,
+    };
 
     static propTypes = {
         clients: PropTypes.array.isRequired,
@@ -28,8 +27,8 @@ class ClientsContainer extends Component {
 
 
     render() {
-        const { match } = this.props
 
+        console.log(this.state.purchases)
         return (
             <div>
                 <h3>Please select a client from the list.</h3>
