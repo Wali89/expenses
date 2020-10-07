@@ -4,8 +4,9 @@ import Client from './Client';
 import Card from './Card'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import './ClientList.scss'
 
-export default class ClientsList extends Component {
+export default class ClientList extends Component {
     state = {
         id: null,
         clientDetails: false,
@@ -42,7 +43,7 @@ export default class ClientsList extends Component {
                         goToClientDetails={this.selectedClientHandler}
                     >
                         <Client
-                            title={client.name}
+                            name={client.name}
 
 
                         />
@@ -52,7 +53,7 @@ export default class ClientsList extends Component {
         }
         return (
             <div>
-                <div className="ui list">
+                <div className="client-list">
                     {this.renderRedirect()}
                     {clientInfo}
                 </div>

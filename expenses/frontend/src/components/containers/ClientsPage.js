@@ -2,18 +2,13 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { getClients } from '../../actions/purchases';
 import PropTypes from 'prop-types';
-import ClientsList from '../components/ClientList';
+import ClientList from '../components/ClientList';
 import { Route, Switch } from 'react-router-dom';
 import ClientShow from './ClientShow'
 
 
 class ClientsContainer extends Component {
 
-    state = {
-        clients: [],
-        loading: true,
-        error: false,
-    };
 
     static propTypes = {
         clients: PropTypes.array.isRequired,
@@ -28,11 +23,11 @@ class ClientsContainer extends Component {
 
     render() {
 
-        console.log(this.state.purchases)
+        console.log(this.props.clients)
         return (
             <div>
                 <h3>Please select a client from the list.</h3>
-                <ClientsList clients={this.props.clients} />
+                <ClientList clients={this.props.clients} />
 
 
 

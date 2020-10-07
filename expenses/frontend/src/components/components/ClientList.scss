@@ -1,0 +1,15 @@
+.client-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 200px;
+    height: 150px;
+  }
+
+  .client-name {
+    padding: 10 30px;
+    font-size: 18px;
+    font-family: monospace;
+    color: black;
+
+  }
