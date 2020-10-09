@@ -67,8 +67,12 @@ export const getProjects = (id) => (dispatch, getState) => {
 
     axios
         .get(`/api/clients/${id}/`, tokenConfig(getState))
-        .then(res => res.json())
-        .then(projects => dispatch({ type: RECIEVE_PROJECTS, payload: projects }))
+        .then(res => {
+            dispatch({
+                type: RECIEVE_PROJECTS,
+                payload: res.data
+            });
+        })
         .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
 
 };

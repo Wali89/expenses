@@ -3,7 +3,7 @@ import { GET_PURCHASES, DELETE_PURCHASE, ADD_PURCHASE, GET_CLIENTS, RECIEVE_PROJ
 const initialState = {
     purchases: [],
     clients: [],
-    projects: [],
+    client: [],
     isFetching: false
 }
 
@@ -42,7 +42,7 @@ export default function (state = initialState, action) {
         case RECIEVE_PROJECTS:
             return {
                 ...state,
-                projects: action.payload
+                client: action.payload
             }
         default:
             return state;

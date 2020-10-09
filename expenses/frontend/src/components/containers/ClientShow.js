@@ -5,38 +5,34 @@ import PropTypes from 'prop-types';
 
 class ClientShow extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            projects: []
-        }
-    }
+
     static propTypes = {
 
         getProjects: PropTypes.func.isRequired
 
     };
 
+    componentDidMount() {
+        this.props.getProjects(this.props.match.params.id);
+    }
+
 
     render() {
-
+        console.log(this.props.match.params.id)
         return (
 
-            <h1>Hello</h1>
+
+            < h1 > Hello { this.props.client.name} </h1 >
         )
     }
 }
 
 
-const mapStateToProps = (state, ownProps) => {
-    const client = state.purchases.clients.filter(client => client.id == ownProps.match.params.clientId)
-    if (client) {
-
-        return { client }
-    } else {
-
-        return { client: {} }
+const mapStateToProps = state => {
+    return {
+        client: state.purchases.client
     }
+
 }
 
 export default connect(mapStateToProps, { getProjects })(ClientShow);
