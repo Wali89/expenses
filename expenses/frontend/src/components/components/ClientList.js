@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import Client from './Client';
-import Card from './Card'
+import Client from './Client'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './ClientList.scss'
@@ -37,17 +36,13 @@ export default class ClientList extends Component {
         if (clients.length > 0) {
             clientInfo = clients.map(client => {
                 return (
-                    <Card
+                    <Client
                         key={client.id}
                         clientId={client.id}
+                        name={client.name}
                         goToClientDetails={this.selectedClientHandler}
                     >
-                        <Client
-                            name={client.name}
-
-
-                        />
-                    </Card>
+                    </Client>
                 );
             });
         }

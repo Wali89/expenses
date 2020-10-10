@@ -77,15 +77,6 @@ export const getProjects = (id) => (dispatch, getState) => {
 
 };
 
-export const recieveProjects = () => (id, json) => {
 
-    dispatch({
-        type: RECIEVE_PROJECTS,
-        id,
-        payload: json.data
-    });
-
-
-};
 
 

@@ -1,17 +1,18 @@
 import React from 'react';
-import { Breakpoint } from 'react-socks';
-import './ClientList.scss'
+import './Client.scss';
 
 const Client = props => (
     <>
-        <Breakpoint client>
 
-            <div className="client-component">
-                <h1 className="client-name">{props.name}</h1>
-            </div>
+        <div
+            className="card-component"
+            style={props.style || null}
+            onClick={() => props.goToClientDetails(props.clientId)}
 
-        </Breakpoint>
+        >
+            <h3>{props.name}</h3>
+        </div>
     </>
-)
+);
 
-export default Client
+export default Client;
