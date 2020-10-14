@@ -23,7 +23,7 @@ class ClientsContainer extends Component {
 
     render() {
 
-        console.log(this.props.clients)
+
         return (
             <div>
                 <h3>Please select a client from the list.</h3>

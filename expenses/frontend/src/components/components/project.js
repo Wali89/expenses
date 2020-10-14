@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import './Project.scss'
 
 
-class Project extends Component {
+const Project = props => (
+    <>
+        <div
+            className="card-component"
+            style={props.style || null}
+            onClick={() => props.goToProjectDetails(props.projectId)}
 
-    render() {
-        return (
-            <div className="project">
-                <p className="project"> <Link
-                    style={{ textDecoration: 'none', color: '#373737' }}
-                    to={{
-                        pathname: `/clients/${this.props.id}`,
-                        state: {
-                            name: this.props.name
-                        }
-                    }}>{this.props.name} </Link> </p>
+        >
+            <h3>{props.name}</h3>
+        </div>
 
 
-            </div >
-        )
-    }
-}
-
-export default Project;
+    </>
+)

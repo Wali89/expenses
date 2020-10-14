@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { getProjects } from '../../actions/purchases';
 import PropTypes from 'prop-types';
+import ProjectList from '../components/ProjectList'
 
 class ClientShow extends Component {
 
@@ -18,11 +19,23 @@ class ClientShow extends Component {
 
 
     render() {
-        console.log(this.props.match.params.id)
+        let projects = this.props.client.projects
+        let projectsRender;
+        if (projects) {
+            projectsRender = projects.map((project, i) => {
+
+
+                <li>{project[i]}</li>
+
+            })
+        }
+        console.log(projectsRender)
         return (
 
-
-            < h1 > Hello { this.props.client.name} </h1 >
+            <div>
+                < h1 > Projects for {this.props.client.name} </h1 >
+                <ProjectList projects={this.props.projects} />
+            </div>
         )
     }
 }
