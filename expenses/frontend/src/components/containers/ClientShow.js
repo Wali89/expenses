@@ -21,15 +21,7 @@ class ClientShow extends Component {
     render() {
         let projects = this.props.client.projects
         let projectsRender;
-        if (projects) {
-            projectsRender = projects.map((project, i) => {
 
-
-                <li>{project[i]}</li>
-
-            })
-        }
-        console.log(projectsRender)
         return (
 
             <div>

@@ -7,7 +7,7 @@ import { Route, Switch } from 'react-router-dom';
 import ClientShow from './ClientShow'
 
 
-class ClientsContainer extends Component {
+class ClientsPage extends Component {
 
 
     static propTypes = {
@@ -46,4 +46,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { getClients })(ClientsContainer)
+export default connect(mapStateToProps, { getClients })(ClientsPage)
